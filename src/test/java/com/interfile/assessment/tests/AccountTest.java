@@ -58,10 +58,8 @@ public class AccountTest {
 	
 	@Test
 	void findAllAfterDeletes() {
-		Account account = accountService.create(id, accNumber, name);
 		List<Account> accounts = accountService.findAll();
 		assertNotNull(accountService.findAll());
 		assertEquals(0, accounts.size());
-		accountService.delete(account);
 	}
 }

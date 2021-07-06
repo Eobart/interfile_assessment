@@ -4,11 +4,11 @@ spring:
   main:
     banner-mode: 'LOG'
   datasource:
-    url: jdbc:mysql://interfile-db.cakdqlbrizjv.us-east-1.rds.amazonaws.com:3306/interfile-db
+    url: jdbc:mysql://interfile.cvflmh2asgqr.eu-west-1.rds.amazonaws.com:3306/interfile
     driverclassName: com.mysql.jdbc.Driver
     pool-name: interfile-mysql-pool
     username: admin 
-    password: <Masked>
+    password: interfile123456
   jpa:
     hibernate:
       dialect: org.hibernate.dialect.PostgreSQLDialect

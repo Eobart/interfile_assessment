@@ -1,0 +1,30 @@
+server:
+  port: 8080
+spring:
+  main:
+    banner-mode: 'LOG'
+  datasource:
+    url: jdbc:mysql://interfile.cvflmh2asgqr.eu-west-1.rds.amazonaws.com:3306/interfile
+    driverclassName: com.mysql.jdbc.Driver
+    pool-name: interfile-mysql-pool
+    username: admin 
+    password: interfile123456
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: update
+      show_sql: true
+      format_sql: false
+    generate-ddl: true
+com:
+  interfile:
+      test: Test string
+logging:
+  file:
+    name: target/logs/assessment.log
+  level:
+    com.interfile.assessment: TRACE
+    org.springframework.session: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: INFO
+    org.hibernate.type: TRACE

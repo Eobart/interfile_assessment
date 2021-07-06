@@ -43,6 +43,8 @@ public class Account {
 	public void setAccountHolder(String accountHolder) {
 		this.accountHolder = accountHolder;
 	}
+	
+	public Account() {}
 
 	public Account(Integer id, String accountNumber, String accountHolder) {
 		super();

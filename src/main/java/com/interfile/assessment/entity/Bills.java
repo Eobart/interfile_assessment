@@ -77,6 +77,8 @@ public class Bills {
 	@Column(name = "due_date")
 	private String dueDate;
 
+	public Bills() {}
+	
 	public Bills(Integer id, String billDate, String period, String charges, String outstanding, String dueDate) {
 		super();
 		this.id = id;

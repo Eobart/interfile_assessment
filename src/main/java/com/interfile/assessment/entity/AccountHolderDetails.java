@@ -98,6 +98,8 @@ public class AccountHolderDetails {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
+	
+	public AccountHolderDetails() {}
 
 	public AccountHolderDetails(Integer id, String mobileNumber, String homeNumber, String workNumber, String address1,
 			String address2, String address3, String postalCode) {
