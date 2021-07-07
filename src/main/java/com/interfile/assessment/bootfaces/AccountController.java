@@ -11,11 +11,11 @@ import com.interfile.assessment.services.AccountService;
 @Scope(value = "session")
 @Component(value = "accountController")
 @ELBeanName(value = "accountController")
-@Join(path = "/", to = "/account-form.jsf")
+@Join(path = "/account", to = "/account-form.jsf")
 public class AccountController {
 	@Autowired
 	private AccountService accountService;
-	
+
 	public void save() {
 		System.out.println("Hello, world");
 	}

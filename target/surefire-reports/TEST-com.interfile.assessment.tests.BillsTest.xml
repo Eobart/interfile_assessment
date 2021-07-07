@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.interfile.assessment.tests.AccountTest" time="39.327" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.interfile.assessment.tests.BillsTest" time="0.002" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -55,9 +55,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="findAllAfterDeletes" classname="com.interfile.assessment.tests.AccountTest" time="2.849"/>
-  <testcase name="testFindAll" classname="com.interfile.assessment.tests.AccountTest" time="4.13"/>
-  <testcase name="testFindById" classname="com.interfile.assessment.tests.AccountTest" time="2.894"/>
-  <testcase name="testCreate" classname="com.interfile.assessment.tests.AccountTest" time="1.83"/>
-  <testcase name="testUpdate" classname="com.interfile.assessment.tests.AccountTest" time="13.492"/>
+  <testcase name="com.interfile.assessment.tests.BillsTest" classname="com.interfile.assessment.tests.BillsTest" time="0.002">
+    <error message="@BeforeAll method &apos;void com.interfile.assessment.tests.BillsTest.beforeAll()&apos; must be static unless the test class is annotated with @TestInstance(Lifecycle.PER_CLASS)." type="org.junit.platform.commons.JUnitException">org.junit.platform.commons.JUnitException: @BeforeAll method 'void com.interfile.assessment.tests.BillsTest.beforeAll()' must be static unless the test class is annotated with @TestInstance(Lifecycle.PER_CLASS).
+</error>
+  </testcase>
 </testsuite>

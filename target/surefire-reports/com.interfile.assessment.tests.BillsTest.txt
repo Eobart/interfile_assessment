@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: com.interfile.assessment.tests.BillsTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in com.interfile.assessment.tests.BillsTest
+com.interfile.assessment.tests.BillsTest  Time elapsed: 0.002 s  <<< ERROR!
+org.junit.platform.commons.JUnitException: @BeforeAll method 'void com.interfile.assessment.tests.BillsTest.beforeAll()' must be static unless the test class is annotated with @TestInstance(Lifecycle.PER_CLASS).
+

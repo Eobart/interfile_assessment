@@ -3,6 +3,8 @@ package com.interfile.assessment.services;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.interfile.assessment.entity.Account;
 import com.interfile.assessment.entity.Bills;
 import com.interfile.assessment.repo.BillsRepo;
 
@@ -11,10 +13,9 @@ public class BillsService {
 	@Autowired
 	BillsRepo billsRepo;
 
-	public Bills create(Integer id, String billDate, String period, String charges, String outstanding,
-			String dueDate) {
+	public Bills create(Integer id, String billDate, String period, String charges, String outstanding, String dueDate, Account account) {
 		try {
-			return billsRepo.save(new Bills(id, billDate, period, charges, outstanding, dueDate));
+			return billsRepo.save(new Bills(id, billDate, period, charges, outstanding, dueDate, account));
 		} catch (Exception exception) {
 			exception.printStackTrace();
 			return null;

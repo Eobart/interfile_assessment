@@ -2,8 +2,15 @@ package com.interfile.assessment.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -16,7 +23,32 @@ public class Bills {
 	
 	@Column(name = "bill_date")
 	private String billDate;
+
+	@Column(name = "period")
+	private String period;
 	
+	@Column(name = "charges")
+	private String charges;
+	
+	@Column(name = "outstanding")
+	private String outstanding;
+	
+	@Column(name = "due_date")
+	private String dueDate;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "appointmentStatus", referencedColumnName = "id")
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private Account account;
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -65,21 +97,9 @@ public class Bills {
 		this.dueDate = dueDate;
 	}
 
-	@Column(name = "period")
-	private String period;
-	
-	@Column(name = "charges")
-	private String charges;
-	
-	@Column(name = "outstanding")
-	private String outstanding;
-	
-	@Column(name = "due_date")
-	private String dueDate;
-
 	public Bills() {}
-	
-	public Bills(Integer id, String billDate, String period, String charges, String outstanding, String dueDate) {
+
+	public Bills(Integer id, String billDate, String period, String charges, String outstanding, String dueDate, Account account) {
 		super();
 		this.id = id;
 		this.billDate = billDate;
@@ -87,5 +107,6 @@ public class Bills {
 		this.charges = charges;
 		this.outstanding = outstanding;
 		this.dueDate = dueDate;
+		this.account = account;
 	}
 }

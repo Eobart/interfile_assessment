@@ -12,9 +12,10 @@ public class AccountService {
 	AccountRepo accountRepo;
 
 	// Create an entry in the db via the repo
-	public Account create(Integer id, String accountNumber, String accountHolder) {
+	public Account create(Integer id, String accountNumber, String accountHolder, String mobileNumber, String homeNumber,
+			String workNumber, String address1, String address2, String address3, String postalCode) {
 		try {
-			return accountRepo.save(new Account(id, accountNumber, accountHolder));
+			return accountRepo.save(new Account(id, accountNumber, accountHolder, postalCode, postalCode, postalCode, postalCode, postalCode, postalCode, postalCode));
 		} catch (Exception exception) {
 			exception.printStackTrace();
 			return null;

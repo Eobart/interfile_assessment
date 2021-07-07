@@ -7,14 +7,13 @@
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition template="layout.xhtml">
 	<ui:define name="content">
-		<h:form id="accountForm">
-			<p:panel header="Account Details">
-				<h:panelGrid columns="1">
-					<p:outputLabel for="name" value="Name: " />
-					<p:inputText id="name" value="#{productController.product.name}" />
-					<p:outputLabel for="price" value="Price: " />
-					<p:inputNumber id="price" value="#{productController.product.price}" />
-					<h:commandButton value="Save" action="#{accountController.save}" />
+		<h:form id="homeForm">
+			<p:panel header="Accounts">
+				<h:panelGrid columns="2">
+					<h:commandButton value="Upload" action="#{accountController.save}" />
+					<p:outputLabel value="" />
+					<p:outputLabel value="Account No.1" />
+					<h:commandButton value="Update" />
 				</h:panelGrid>
 			</p:panel>
 		</h:form>
