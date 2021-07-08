@@ -9,11 +9,34 @@
 	<ui:define name="content">
 		<h:form id="homeForm">
 			<p:panel header="Accounts">
-				<h:panelGrid columns="2">
-					<h:commandButton value="Upload" action="#{accountController.save}" />
-					<p:outputLabel value="" />
-					<p:outputLabel value="Account No.1" />
-					<h:commandButton value="Update" />
+				<h:panelGrid columns="1">
+
+					<h:form enctype="multipart/form-data">
+						<p:commandButton value="Upload" ajax="false"
+							action="#{homeController.upload}"
+							styleClass="p-mt-3 ui-button-outlined p-d-block" />
+						<h:outputText
+							value=" Note: To upload new accounts please add account xml files to the following directory 'C:\accounts' and click on 'Upload'" />
+					</h:form>
+
+					<h:form id="form">
+						<p:panel>
+							<p:dataTable id="table" var="accounts"
+								value="#{homeController.accounts}">
+								<p:column>
+									<p:button href="/account" value="#{accounts.accountHolder}"
+										action="#{homeController.setAccount(accounts.accountHolder)}" />
+								</p:column>
+
+								<p:column>
+									<h:outputText value="#{accounts.mobileNumber}" />
+								</p:column>
+
+							</p:dataTable>
+						</p:panel>
+					</h:form>
+
+
 				</h:panelGrid>
 			</p:panel>
 		</h:form>

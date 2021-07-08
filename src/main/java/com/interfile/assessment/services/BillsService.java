@@ -48,6 +48,15 @@ public class BillsService {
 			return null;
 		}
 	}
+	
+	public List<Bills> findByAccount(Account account) {
+		try {
+			return billsRepo.findByAccount(account);
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			return null;
+		}
+	}
 
 	public Bills update(Bills bills) {
 		try {

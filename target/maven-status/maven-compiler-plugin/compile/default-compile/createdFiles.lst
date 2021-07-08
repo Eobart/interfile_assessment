@@ -1,6 +1,0 @@
-com\interfile\assessment\services\BillsService.class
-com\interfile\assessment\repo\AccountRepo.class
-com\interfile\assessment\repo\BillsRepo.class
-com\interfile\assessment\entity\Bills.class
-com\interfile\assessment\entity\Account.class
-com\interfile\assessment\services\AccountService.class

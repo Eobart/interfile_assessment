@@ -2,6 +2,8 @@ package com.interfile.assessment.tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,7 +13,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.interfile.assessment.entity.Account;
+import com.interfile.assessment.entity.Bills;
+import com.interfile.assessment.repo.BillsRepo;
 import com.interfile.assessment.services.AccountService;
+import com.interfile.assessment.services.BillsService;
+
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
@@ -19,6 +25,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class AccountTest {
 	@Autowired
 	AccountService accountService;
+	@Autowired 
+	BillsService billsService;
 
 	int id = 1;
 	String accNumber = "123456789";
@@ -32,8 +40,14 @@ public class AccountTest {
 	String postalCode = "11111";
 
 	@Test
-	void testCreate() {
-		Account account = accountService.create(id, accNumber, name, mobileNumber, homeNumber, workNumber, address1, address2, address3, postalCode);
+	void testCreateWithBills() {
+		List<Bills> billsList = new ArrayList<Bills>();
+		Account account = accountService.create(new Account(id, accNumber, name, mobileNumber, homeNumber, workNumber, address1, address2, address3, postalCode));
+		billsList.add(new Bills(1, "2019-01-01", "2019-01-01 to 2019-01-02", "R200", "R200", "2021-01-01", account));
+		billsList.add(new Bills(2, "2012-01-01", "2012-01-01 to 2012-01-02", "R300", "R100", "2027-01-01", account));
+		for (Bills bills : billsList) {
+			billsService.create(bills);
+		}
 		assertNotNull(account);
 		accountService.delete(account);
 	}

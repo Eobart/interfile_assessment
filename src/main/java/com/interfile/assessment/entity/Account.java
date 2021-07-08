@@ -1,9 +1,21 @@
 package com.interfile.assessment.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -12,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Account {
 	@Id
 	@Column(name = "id")
-	private Integer id;
+	private int id;
 	
 	@Column(name = "account_number")
 	private String accountNumber;
@@ -20,6 +32,9 @@ public class Account {
 	@Column(name = "account_holder")
 	private String accountHolder;
 	
+	@Column(name = "account_holder_id_number")
+	private String accountHolderIdNumber;
+
 	@Column(name = "mobile_number")
 	private String mobileNumber;
 	
@@ -40,12 +55,12 @@ public class Account {
 	
 	@Column(name = "postal_code")
 	private String postalCode;
-	
-	public Integer getId() {
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -63,6 +78,14 @@ public class Account {
 
 	public void setAccountHolder(String accountHolder) {
 		this.accountHolder = accountHolder;
+	}
+	
+	public String getAccountHolderIdNumber() {
+		return accountHolderIdNumber;
+	}
+
+	public void setAccountHolderIdNumber(String accountHolderIdNumber) {
+		this.accountHolderIdNumber = accountHolderIdNumber;
 	}
 
 	public String getMobileNumber() {
@@ -123,7 +146,7 @@ public class Account {
 
 	public Account() {}
 
-	public Account(Integer id, String accountNumber, String accountHolder, String mobileNumber, String homeNumber,
+	public Account(int id, String accountNumber, String accountHolder, String mobileNumber, String homeNumber,
 			String workNumber, String address1, String address2, String address3, String postalCode) {
 		super();
 		this.id = id;
@@ -137,6 +160,4 @@ public class Account {
 		this.address3 = address3;
 		this.postalCode = postalCode;
 	}
-
-	
 }

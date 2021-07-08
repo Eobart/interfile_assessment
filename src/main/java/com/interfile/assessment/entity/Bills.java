@@ -3,6 +3,8 @@ package com.interfile.assessment.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -37,7 +39,7 @@ public class Bills {
 	private String dueDate;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "appointmentStatus", referencedColumnName = "id")
+	@JoinColumn(name = "account", referencedColumnName = "id")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Account account;
 
